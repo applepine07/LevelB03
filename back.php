@@ -41,12 +41,10 @@ include_once "base.php";
           echo "<div class='ct' style='color:red'>帳號密碼錯誤</div>";
         }
       }
-
       // 建立login後就載入nav
       if (isset($_SESSION['login'])) {
         include "back/nav.php";
-
-        // 然後判斷do頁面，有do就載do，沒do就是空值防別人亂打，然後載main
+        // 載入nav後，判斷do頁面，有do就載do，沒do就是空值防別人亂打，然後載main
         $do = $_GET['do'] ?? '';
         $file = "./back/" . $do . ".php";
         if (file_exists($file)) {
