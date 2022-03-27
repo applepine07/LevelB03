@@ -66,11 +66,16 @@
         })
     })
 
+    // 抓到id後送到後端show的api，第一種比較好
+    // $(".show").on("click", function(e) {
+    //     let id = $(e.target).data("id");
+    //     $.post("api/show.php", {id}, () => {
+    //         location.reload();
+    //     })
+    // })
     $(".show").on("click", function() {
         let id = $(this).data("id");
-        $.post("api/show.php", {
-            id
-        }, () => {
+        $.post("api/show.php", {id}, () => {
             location.reload();
         })
     })
