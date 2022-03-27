@@ -35,7 +35,6 @@
             limit $start,$div");
             foreach ($rows as $key => $row) {
 
-
             ?>
                 <div>
                     <div class="ct" style="font-size: 22px;">片名：<?=$row['name'];?></div>
