@@ -56,11 +56,13 @@ foreach($ords as $ord){
     <?php
 
     for($i=0;$i<20;$i++){
+        // 如果$i有在我們還原為陣列的$seats裡，該座位就是被訂走惹
         $booked=in_array($i,$seats)?'booked':'null';
         echo "<div class='seat $booked'>";
         echo "  <div class='ct'>";
         echo    (floor($i/5)+1). "排".($i%5 +1)."號";
         echo "  </div>";
+        // 如果還沒被訂走就可秀出來checkbox
         if(!in_array($i,$seats)){
             echo "<input type='checkbox' name='check' class='check' value='$i'>";
         }

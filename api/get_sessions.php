@@ -3,9 +3,11 @@ include_once "../base.php";
 $movie=$Movie->find($_GET['id']);
 $date=$_GET['date'];
 
+// 時間不是今天且dateG(小時)<14，就是有5場
 if($date!=date("Y-m-d") || date("G")<14){
     $s=5;
 }else{
+    // 不然s就等於
     $s=5-ceil((date("G")-13)/2);
 }
 
