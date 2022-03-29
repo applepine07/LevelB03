@@ -36,6 +36,7 @@
 </div>
 <div class='list'>
 <?php
+// 照序號順序排列
 $rows=$Ord->all(" Order by `no` DESC");
 
 foreach($rows as $row){
@@ -66,6 +67,7 @@ foreach($rows as $row){
 
 
 function qdel(){
+    // 下面這一行要記住，是選name等於type，然後又被勾選的其值
     let type=$("input[name='type']:checked").val()
     let target
     switch(type){
@@ -77,8 +79,11 @@ function qdel(){
         break;
     }
     let chk=confirm(`你確定要刪除${target}的所有訂單資料嗎?`)
+    // 以下寫法等同於如果chk=1
     if(chk){
+        // 傳type和target到api qdel那
         $.post("api/qdel.php",{type,target},()=>{
+            // 傳完就重整網頁
             location.reload()
         })
     }
